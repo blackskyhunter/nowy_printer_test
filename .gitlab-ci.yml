@@ -18,4 +18,4 @@ docker:
      stage: docker_build
      script:
         - apk add --update make
-        - docker build -t myapp
+        - make docker_build
