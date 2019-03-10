@@ -1,3 +1,7 @@
+stages:
+    - test
+    - docker_build
+
 test:
     image: "python:2.7"
     stage: test
@@ -6,9 +10,6 @@ test:
     - pip install -r test_requiremnents.txt
     - PYTHONPATH=/ py.test --verbose -s
 
-stages:
-    - test
-    - docker_build
 
 docker:
     image: docker:stable
