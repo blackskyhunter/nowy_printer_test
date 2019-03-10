@@ -8,7 +8,7 @@ test:
     script:
     - pip install -r requirements.txt
     - pip install -r test_requiremnents.txt
-    - PYTHONPATH=/ py.test --verbose -s
+    - PYTHONPATH=. py.test --verbose -s
 
 
 docker:
@@ -17,4 +17,5 @@ docker:
         - docker:dind
      stage: docker_build
      script:
-        -docker build -t myapp
+        - apk add --update make
+        - make docker_build
